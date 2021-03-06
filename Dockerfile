@@ -1,5 +1,5 @@
 # Run with:
-# docker build . -t todoapi:latest
+# docker build . -t todoapiaspdotnetcore:latest
 
 FROM mcr.microsoft.com/dotnet/aspnet:5.0-buster-slim AS base
 WORKDIR /app

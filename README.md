@@ -1,11 +1,11 @@
-# TodoApi from the "Create a web API with ASP.NET Core" tutorial
+# TodoApi from the tutorial "Create a web API with ASP.NET Core"
 
-This repo contains the TodoApi from the [Create a web API with ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio) tutorial and the crude web UI from the [Call an ASP.NET Core web API with JavaScript](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-javascript?view=aspnetcore-5.0).
+This repo contains both the TodoApi from the tutorial [Create a web API with ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio) and the crude web UI from the tutorial [Call an ASP.NET Core web API with JavaScript](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-javascript?view=aspnetcore-5.0).
 
 ## Requisites
 
-* [.NET 5.0 SDK or later](https://dotnet.microsoft.com/download/dotnet/5.0)
-* Docker, if you want to run the example inside a container instead
+* [.NET 5.0 SDK or later](https://dotnet.microsoft.com/download/dotnet/5.0) if you want to run the application locally
+* Docker, if you want to build and run the example inside a Docker container instead
 
 ## Usage
 
@@ -28,14 +28,20 @@ info: Microsoft.Hosting.Lifetime[0]
 
 ### Container
 
-You can build the container image with: `docker build . -t todoapi:latest`
+You can build the container image with: `docker build . -t todoapiaspdotnetcore:latest`, then run it with:
+
+```
+$ docker run --rm -d -p 443:443 -p 80:80 todoapiaspdotnetcore:latest
+```
+
+Then open the browser at https://localhost (for port 443) or http://localhost (for port 80).
 
 ### Container with VS Code
 
-If you have Visual Studio Code and the Docker extension, you can run it from a container by right-clicking on the `Dockerfile` and selecting `Build Image...` and confirming the default tag `todoapi:latest`.
+If you have Visual Studio Code and the Docker extension, you can run it from a container by right-clicking on the `Dockerfile` and selecting `Build Image...` and confirming the default tag `todoapiaspdotnetcore:latest`.
 
-Once the image is built, you can switch to the Docker extension, expand `todoapi` from the list of images, then right-click on the `latest` image and select `Run`.
+Once the image is built, you can switch to the Docker extension, expand `todoapiaspdotnetcore` from the list of images, then right-click on the `latest` image and select `Run`.
 
-From the list of containers, you can select the `todoapi:latest` image that is now running, right-click on it and select `Open in Browser`.
+From the list of containers, you can select the `todoapiaspdotnetcore:latest` image that is now running, right-click on it and select `Open in Browser`.
 
-You might need to change the protocol in the URL from `https` to `http` if the port 443 was already busy.
+You might need to change the protocol in the URL from `https` to `http` if the port 443 was already busy (eg. you have sshd installed and running)
